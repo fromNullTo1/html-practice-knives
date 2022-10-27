@@ -8,24 +8,43 @@
 	&__catalog {}
 }
 .top-header {
+	padding: 10px 0;
 	&__container {
 		display: flex;
 		align-items: center;
 		gap: 20px;
+		min-height: 50px;
 	}
 	&__menu {
 		flex: 1 1 auto;
 	}
-	&__user {}
+	&__user {
+		display: inline-flex;
+		align-items: center;
+		font-weight: 600;
+		line-height: math.div(22, 18 );
+		&::before {
+			font-size: rem(28);
+			margin-right: em(15, 28);
+		}
+	}
 }
 .header-top {
 	&__menu {}
 }
 .menu {
 	&__body {}
-	&__list {}
+	&__list {
+		display: flex;
+		flex-wrap: wrap;
+		row-gap: 5px;
+		@include adaptiveValue('column-gap', 60, 20);
+	}
 	&__item {}
-	&__link {}
+	&__link {
+		font-size: rem(16);
+		line-height: math.div(20, 16);
+	}
 }
 .icon-menu {
 }
@@ -44,7 +63,8 @@
 	@media (max-width: $mobile) {
 		display: block;
 		position: relative;
-		width: rem(30);
+		// width: rem(30);
+		flex: 0 0 30px;
 		height: rem(18);
 		cursor: pointer;
 		z-index: 5;
@@ -72,9 +92,9 @@
 			span {
 				width: 0;
 			}
-			&::before,
-			&::after {
-			}
+			// &::before,
+			// &::after {
+			// }
 			&::before {
 				top: calc(50% - rem(1));
 				transform: rotate(-45deg);
